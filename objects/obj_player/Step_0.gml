@@ -18,3 +18,5 @@ if (keyboard_check(vk_down) || keyboard_check(ord("S")))
 {
     y = y + player_speed;
 }
+
+center = {x: x + sprite_get_width(spr_player_placeholder) / 2, y: y + sprite_get_height(spr_player_placeholder) / 2}
