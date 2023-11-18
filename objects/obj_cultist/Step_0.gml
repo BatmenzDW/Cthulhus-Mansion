@@ -7,26 +7,52 @@ vision.y = y
 vision.sight_cone.left = (30 + facing_angle)
 vision.sight_cone.right = (-30 + facing_angle)
 
-if (facing_angle > 90 && facing_angle <= 270)
+facing_angle = (facing_angle + 360) % 360
+
+if (facing_angle <= 90 || facing_angle > 270)
 {
-	image_xscale = 1
+	image_xscale = -1
 }
 else
 {
-	image_xscale = -1
+	image_xscale = 1
 }
 
 var _player = instance_nearest(x, y, obj_player);
 
+if running && moving
+{
+	sprite_index = spr_cultist_run
+}
+else if moving
+{
+	sprite_index = spr_cultist_walk
+}
+else
+{
+	//sprite_index = spr_cultist_wait
+}
+
 if return_patrol
 {
-	var _x = path_get_x(pth_cultist, 0)
-	var _y = path_get_y(pth_cultist, 0)
-	mp_potential_step(_x, _y, walk_speed, true)
-	if distance_to_point(_x, _y) < walk_speed
+	var _node = instance_nearest(x, y, obj_node);
+	mp_potential_step(_node.x, _node.y, walk_speed, true)
+	if distance_to_point(_node.x, _node.y) < walk_speed
 	{
 		return_patrol = false
-		path_start(path, walk_speed, path_action_restart, true);
+		path_target = _node
+	}
+}
+
+if !chasing
+{
+	moving = true
+	running = false
+	mp_potential_step(path_target.x, path_target.y, walk_speed, false)
+	if distance_to_point(path_target.x, path_target.y) < walk_speed
+	{
+		path_i = (path_i + 1)%(array_length(obj_game.path_nodes))
+		path_target = obj_game.path_nodes[path_i]
 	}
 }
 
@@ -52,7 +78,6 @@ if instance_exists(_player)
 		max_dash_duration = start_dash_duration
 		chasing = true
 		vision.color = c_red
-		path_end()
 		player_target.x = _player.x
 		player_target.y = _player.y
 		var _dir = point_direction(vision.x, vision.y, player_target.x, player_target.y)
@@ -63,6 +88,7 @@ if instance_exists(_player)
 	{
 		if (dash_cooldown <= 0)
 		{
+			moving = true
 			if (dash_duration >= max_dash_duration)
 			{
 				dash_duration = 0
@@ -70,32 +96,45 @@ if instance_exists(_player)
 				dash_cooldown = max_dash_cooldown
 				if max_dash_cooldown > 0
 					max_dash_cooldown -= cooldown_decrease
-				player_target.x = _player.x
-				player_target.y = _player.y
-				if (!sees_player)
+					
+				if max_dash_duration >= duration_run
+					running = true
+				else
+					running = false
+				if (sees_player)
 				{
+					player_target.x = _player.x
+					player_target.y = _player.y
+				}
+				if (!sees_player && memory_duration >= max_memory_duration)
+				{
+					memory_duration = 0
 					vision.color = c_white
 					chasing = false
 					return_patrol = true
 				}
+				else if (!sees_player)
+				{
+					memory_duration += 1
+				}
 			}
 			else
 			{
-				mp_potential_step(player_target.x, player_target.y, 5, true)
+				mp_potential_step(player_target.x, player_target.y, chase_speed, false)
 				dash_duration += 1
 			}
 		}
 		else
 		{
 			dash_cooldown -= 1
+			moving = false
 		}
-		var _dir = point_direction(vision.x, vision.y, player_target.x, player_target.y)
-		var _diff = angle_difference(_dir, facing_angle)
-		facing_angle += _diff * 0.9
 	}
 	else
 	{
-		facing_angle += 0.5
+		var _dir = point_direction(vision.x, vision.y, path_target.x, path_target.y)
+		var _diff = angle_difference(_dir, facing_angle)
+		facing_angle += _diff * 0.01
 	}
 	
 }

@@ -25,7 +25,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_talisman",
+    "path": "sprites/spr_talisman/spr_talisman.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }

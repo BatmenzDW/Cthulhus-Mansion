@@ -3,25 +3,25 @@
 
 sees_player = false
 chasing = false
+running = false
+moving = true
 return_patrol = false
-walk_speed = 3
-start_dash_cooldown = 50
-max_dash_cooldown = 50
+
+max_dash_cooldown = start_dash_cooldown
 dash_cooldown = 0
-cooldown_decrease = 2
-start_dash_duration = 10
-max_dash_duration = 10
+
+max_dash_duration = start_dash_duration
 dash_duration = 0
-duration_increase = 3
+
+memory_duration = 0
 
 facing_angle = 0
 
 player_target = {x: 0, y: 0}
 
-path = pth_cultist
+path_target = noone
+path_i = 0
 
-path_start(path, walk_speed, path_action_restart, true);
+vision = instance_create_layer(x, y, "Instances", obj_vision_cone, {x: x, y: y})
 
-vision = instance_create_layer(x, y, 0, obj_vision_cone, {x: x, y: y})
-
-vision.sight_cone.length = 1000
+vision.sight_cone.length = 1500
