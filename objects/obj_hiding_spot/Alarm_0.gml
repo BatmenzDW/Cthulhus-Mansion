@@ -9,3 +9,8 @@ obj_player.y = self.y;
 obj_player.image_alpha = 0;
 show_debug_message("you are hidden")
 obj_player.start_hiding = false
+
+if hiding_sprite != noone
+{
+	sprite_index = hiding_sprite
+}

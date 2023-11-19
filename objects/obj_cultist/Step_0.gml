@@ -25,9 +25,11 @@ if distance_to_object(_player) < 5 && _player.is_hidden && saw_hiding
 	found_player = true
 	obj_player.game_over = true
 	obj_player.is_hidden = false
-	obj_player.x = obj_hidding_spot.stor_x
-	obj_player.y = obj_hidding_spot.stor_y
+	obj_player.x = obj_hiding_spot.stor_x
+	obj_player.y = obj_hiding_spot.stor_y
 	obj_player.image_alpha = 1;
+	if obj_hiding_spot.sprite != noone
+		obj_hiding_spot.sprite_index = obj_hiding_spot.sprite
 }
 
 if found_player

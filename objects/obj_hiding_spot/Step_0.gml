@@ -1,6 +1,5 @@
-/// @description Checking for collisions
+/// @description Insert description here
 // You can write your code in this editor
-
 
 
 
@@ -10,7 +9,7 @@ if(place_meeting(x,y,obj_player) && !(obj_player.is_hidden)) {
 		obj_player.can_move = false;
 		alarm_set(0,interact_delay);
 		obj_player.start_hiding = true
-	}
+	} 
 	if(keyboard_check_released(ord("G")))
 	{
 		obj_player.can_move = true;	
@@ -25,4 +24,6 @@ if(obj_player.is_hidden && keyboard_check_pressed(ord("G"))) {
 	show_debug_message("un hidden")
 	obj_player.x = stor_x
 	obj_player.y = stor_y
+	if sprite != noone
+		sprite_index = sprite
 }

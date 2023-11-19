@@ -4,4 +4,5 @@
 
 
 
-game_end()
+stor_x = 0
+stor_y = 0

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "spr_table",
+  "name": "spr_table_hiding",
   "bbox_bottom": 1119,
   "bbox_left": 320,
   "bbox_right": 959,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"36f45429-6758-49ff-84d9-8ad2d60d1475",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2601281f-299d-4412-bf44-a097b6280970",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 1280,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"79f0482e-371d-46b2-9650-a7b25f635394","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2675d89e-778e-4569-a529-1f3b96ff0605","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "spr_table",
+    "name": "spr_table_hiding",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"36f45429-6758-49ff-84d9-8ad2d60d1475","path":"sprites/spr_table/spr_table.yy",},},},"Disabled":false,"id":"2dbe1780-9879-499a-abff-8c8a4c2f2d2a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2601281f-299d-4412-bf44-a097b6280970","path":"sprites/spr_table_hiding/spr_table_hiding.yy",},},},"Disabled":false,"id":"a1c14bc7-f462-4b01-8a8d-7536184d4d59","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
