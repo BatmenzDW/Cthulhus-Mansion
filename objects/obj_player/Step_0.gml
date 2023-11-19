@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
 if(can_move == true) {
 	if (keyboard_check(vk_left) || keyboard_check(ord("A")))
 	{
