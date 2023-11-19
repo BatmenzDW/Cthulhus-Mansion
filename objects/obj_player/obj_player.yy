@@ -5,6 +5,8 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":{"name":"obj_cultist","path":"objects/obj_cultist/obj_cultist.yy",},"eventNum":0,"eventType":4,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":4,"eventType":7,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":80,"eventType":9,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
   ],
@@ -41,8 +43,8 @@
   ],
   "solid": true,
   "spriteId": {
-    "name": "spr_player_placeholder",
-    "path": "sprites/spr_player_placeholder/spr_player_placeholder.yy",
+    "name": "spr_player",
+    "path": "sprites/spr_player/spr_player.yy",
   },
   "spriteMaskId": null,
   "visible": true,
