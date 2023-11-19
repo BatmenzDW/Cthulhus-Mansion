@@ -6,6 +6,8 @@ chasing = false
 running = false
 moving = true
 return_patrol = false
+saw_hiding = false
+found_player = false
 
 max_dash_cooldown = start_dash_cooldown
 dash_cooldown = 0
@@ -14,6 +16,8 @@ max_dash_duration = start_dash_duration
 dash_duration = 0
 
 memory_duration = 0
+
+chase_speed = start_chase_speed
 
 facing_angle = 0
 

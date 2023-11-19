@@ -2,8 +2,11 @@
 // You can write your code in this editor
 
 
-if game_over
+if game_over || !can_move
 	return
+
+var _prev_x = x
+var _prev_y = y
 
 if (keyboard_check(vk_left) || keyboard_check(ord("A")))
 {
@@ -28,6 +31,26 @@ if (keyboard_check(vk_down) || keyboard_check(ord("S")))
     var _y = y + player_speed
 	if place_empty(x, _y, coll_list)
 		y = _y;
+}
+
+is_moving = (_prev_x != x || _prev_y != y)
+
+if is_moving
+{
+	sprite_index = spr_player_walk
+}
+else
+{
+	sprite_index = spr_player
+}
+
+if (_prev_x - x > 0)
+{
+	image_xscale = -1
+}
+else if (_prev_x - x < 0)
+{
+	image_xscale = 1
 }
 
 center = {x: x, y: y}

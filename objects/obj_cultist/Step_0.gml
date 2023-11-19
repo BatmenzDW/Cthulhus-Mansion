@@ -4,8 +4,8 @@
 vision.x = x
 vision.y = y
 
-vision.sight_cone.left = (30 + facing_angle)
-vision.sight_cone.right = (-30 + facing_angle)
+vision.sight_cone.left = (vision_width/2 + facing_angle)
+vision.sight_cone.right = (-vision_width/2 + facing_angle)
 
 facing_angle = (facing_angle + 360) % 360
 
@@ -20,17 +20,31 @@ else
 
 var _player = instance_nearest(x, y, obj_player);
 
-if running && moving
+if distance_to_object(_player) < 5 && _player.is_hidden && saw_hiding
 {
-	sprite_index = spr_cultist_run
+	found_player = true
+	obj_player.game_over = true
+	obj_player.is_hidden = false
+	obj_player.x = obj_hidding_spot.stor_x
+	obj_player.y = obj_hidding_spot.stor_y
+	obj_player.image_alpha = 1;
+}
+
+if found_player
+{
+	sprite_index = open_sprite
+}
+else if running && moving
+{
+	sprite_index = run_sprite
 }
 else if moving
 {
-	sprite_index = spr_cultist_walk
+	sprite_index = walk_sprite
 }
 else
 {
-	//sprite_index = spr_cultist_wait
+	sprite_index = idle_sprite
 }
 
 if return_patrol
@@ -63,19 +77,23 @@ if instance_exists(_player)
 	vision.sight_cone.x2 = x + lengthdir_x(vision.sight_cone.length, vision.sight_cone.left);
 	vision.sight_cone.y2 = y + lengthdir_y(vision.sight_cone.length, vision.sight_cone.left);
 	if point_in_triangle(_player.center.x, _player.center.y, vision.x, vision.y, vision.sight_cone.x1, vision.sight_cone.y1,
-				vision.sight_cone.x2, vision.sight_cone.y2)
+				vision.sight_cone.x2, vision.sight_cone.y2) && !_player.is_hidden
 	{
 		sees_player = true;
+		if _player.start_hiding
+			saw_hiding = true
 	}
 	else
 	{
-		sees_player = false;
+		if !saw_hiding
+			sees_player = false;
 	}
 	
 	if (sees_player && !chasing)
 	{
 		max_dash_cooldown = start_dash_cooldown
 		max_dash_duration = start_dash_duration
+		chase_speed = start_chase_speed
 		chasing = true
 		vision.color = c_red
 		player_target.x = _player.x
@@ -92,6 +110,7 @@ if instance_exists(_player)
 			if (dash_duration >= max_dash_duration)
 			{
 				dash_duration = 0
+				chase_speed	+= speed_increase
 				max_dash_duration += duration_increase
 				dash_cooldown = max_dash_cooldown
 				if max_dash_cooldown > 0
