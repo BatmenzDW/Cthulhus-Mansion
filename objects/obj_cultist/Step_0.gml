@@ -67,8 +67,11 @@ if !chasing
 	mp_potential_step(path_target.x, path_target.y, walk_speed, false)
 	if distance_to_point(path_target.x, path_target.y) < walk_speed
 	{
-		path_i = (path_i + 1)%(array_length(obj_game.path_nodes))
-		path_target = obj_game.path_nodes[path_i]
+		if array_length(obj_game.path_nodes) != 0
+		{
+			path_i = (path_i + 1)%(array_length(obj_game.path_nodes))
+			path_target = obj_game.path_nodes[path_i]
+		}
 	}
 }
 
@@ -97,6 +100,7 @@ if instance_exists(_player)
 		max_dash_duration = start_dash_duration
 		chase_speed = start_chase_speed
 		chasing = true
+		obj_filter_film.intensity += scareyness
 		vision.color = c_red
 		player_target.x = _player.x
 		player_target.y = _player.y
@@ -133,6 +137,7 @@ if instance_exists(_player)
 					vision.color = c_white
 					chasing = false
 					return_patrol = true
+					obj_filter_film.intensity -= scareyness
 				}
 				else if (!sees_player)
 				{
@@ -153,9 +158,18 @@ if instance_exists(_player)
 	}
 	else
 	{
-		var _dir = point_direction(vision.x, vision.y, path_target.x, path_target.y)
-		var _diff = angle_difference(_dir, facing_angle)
-		facing_angle += _diff * 0.01
+		try
+		{
+			var _dir = point_direction(vision.x, vision.y, path_target.x, path_target.y)
+			var _diff = angle_difference(_dir, facing_angle)
+			facing_angle += _diff * 0.01
+		}
+		catch (_er)
+		{
+			var _dir = point_direction(vision.x, vision.y, 0, 0)
+			var _diff = angle_difference(_dir, facing_angle)
+			facing_angle += _diff * 0.01
+		}
 	}
 	
 }

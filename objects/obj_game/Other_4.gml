@@ -28,3 +28,17 @@ var _ypos = (_dheight / 2) - 270;
 window_set_rectangle(_xpos, _ypos, 960, 540);
 
 surface_resize(application_surface, 960, 540);
+
+if hear_boss_music
+{
+	obj_filter_film.intensity += 0.5
+	if array_contains(visited_rooms, room)
+	{
+		boss_follow(obj_clifford)
+	}
+	else
+	{
+		array_push(visited_rooms, room)
+		headstart += boss_headstart
+	}
+}

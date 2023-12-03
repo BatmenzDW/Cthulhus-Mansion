@@ -1,6 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if hear_boss_music
+{
+	if headstart > 0
+	{
+		headstart -= 1
+	}
+	else if headstart > -1
+	{
+		boss_follow(obj_clifford)
+		headstart = -1
+	}
+}
+
 if (obj_player.game_over) {
 	obj_game.persistent = false;
 	obj_player.persistent = false;

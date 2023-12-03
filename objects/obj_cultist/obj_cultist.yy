@@ -38,10 +38,12 @@
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"max_memory_duration","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"5","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"duration_run","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"100","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vision_width","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"60","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"vision_length","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"1500","varType":0,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"idle_sprite","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"spr_cultist_idle","varType":5,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"walk_sprite","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"spr_cultist_walk","varType":5,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"run_sprite","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"spr_cultist_run","varType":5,},
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"open_sprite","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"spr_cultist_open","varType":5,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"scareyness","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0.1","varType":0,},
   ],
   "solid": true,
   "spriteId": {

@@ -23,9 +23,9 @@ facing_angle = 0
 
 player_target = {x: 0, y: 0}
 
-path_target = noone
+path_target = {x: x, y: y}
 path_i = 0
 
 vision = instance_create_layer(x, y, "Instances", obj_vision_cone, {x: x, y: y})
 
-vision.sight_cone.length = 1500
+vision.sight_cone.length = vision_length

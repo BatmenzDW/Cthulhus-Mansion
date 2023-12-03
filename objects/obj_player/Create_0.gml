@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+cursed_text = false
+
 can_move = true
 is_moving = false
 is_hidden = false
